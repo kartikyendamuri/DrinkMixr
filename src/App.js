@@ -18,25 +18,26 @@ const useStyles = makeStyles({
 
 export default function App() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(30);
-  const [free, setFree] = React.useState(30);
-  const [ren, setRen] = React.useState(30);
+  const [value, setValue] = React.useState(0);
+  const [free, setFree] = React.useState(0);
+  const [ren, setRen] = React.useState(0);
+  const [ky, setKy] = React.useState(0);
+  
 
   const handleChange = (event, newValue) => {
-    console.log(newValue);
     setValue(newValue);
   }
 
   const knobChange = (event, newFree) => {
-    console.log(newFree);
     setFree(newFree);
- 
   };
 
   const doorChange = (event, newRen) => {
-    console.log(newRen);
     setRen(newRen);
- 
+  };
+
+  const finalChange = (event, newKy) => {
+    setKy(newKy);
   };
 
   const giveOrder = () => {
@@ -44,12 +45,14 @@ export default function App() {
       "user_name": "Sujay Garlanka",
       "priming": false,
       "order": {
-          "Fanta": 1.0,
-          "Sprite": 1.0
+          "Fanta": 2.0,
+          "Sprite": 2.0,
+          "Coke": ky,
+          "Water": value
       }
   }
-  
-  axios.post("https://stark-beach-45459.herokuapp.com/order",order)
+  //console.log(order)
+  //axios.post("https://stark-beach-45459.herokuapp.com/order",order)
 
   }
   return (
@@ -58,29 +61,28 @@ export default function App() {
         Drink 1
       </Typography>
       <Grid container spacing={2}>
-        <Grid item>
-          <VolumeDown />
-        </Grid>
+        
         <Grid item xs>
-          <Slider value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
+          <Slider 
+          
+          min={0}
+          max={10}
+          value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
         </Grid>
-        <Grid item>
-          <VolumeUp />
-        </Grid>
+        
       </Grid>
   
       <Typography id="continuous-slideragain" gutterBottom>
         Drink 2
       </Typography>
       <Grid container spacing={2}>
-        <Grid item>
-          <VolumeDown />
-        </Grid>
         <Grid item xs>
-          <Slider free={free} onChange={knobChange} aria-labelledby="continuous-slideragain" />
-        </Grid>
-        <Grid item>
-          <VolumeDown />
+          
+          <Slider
+          min={0}
+          max={10}
+          free={free} onChange={knobChange} aria-labelledby="continuous-slideragain" />
+          
         </Grid>
       </Grid>
       
@@ -89,14 +91,11 @@ export default function App() {
         Drink 3
       </Typography>
       <Grid container spacing={2}>
-        <Grid item>
-          <VolumeDown />
-        </Grid>
         <Grid item xs>
-          <Slider ren={ren} onChange={doorChange} aria-labelledby="continuous-slideragagin" />
-        </Grid>
-        <Grid item>
-          <VolumeUp />
+          <Slider 
+          min={0}
+          max={10}
+          ren={ren} onChange={doorChange} aria-labelledby="continuous-slideragagin" />
         </Grid>
       </Grid>
   
@@ -104,14 +103,11 @@ export default function App() {
         Drink 4
       </Typography>
       <Grid container spacing={2}>
-        <Grid item>
-          <VolumeDown />
-        </Grid>
         <Grid item xs>
-          <Slider free={free} onChange={knobChange} aria-labelledby="continuous-slideragain" />
-        </Grid>
-        <Grid item>
-          <VolumeDown />
+          <Slider 
+            min={0}
+            max={10}
+            ky={ky} onChange={finalChange} aria-labelledby="continuous-slideragain" />
         </Grid>
       </Grid>
 
