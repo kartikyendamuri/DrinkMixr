@@ -51,8 +51,8 @@ export default function App() {
           "Water": value
       }
   }
-  //console.log(order)
-  //axios.post("https://stark-beach-45459.herokuapp.com/order",order)
+  console.log(order)
+  axios.post("https://stark-beach-45459.herokuapp.com/order",order)
 
   }
   return (
