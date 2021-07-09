@@ -45,10 +45,10 @@ export default function App() {
       "user_name": "Sujay Garlanka",
       "priming": false,
       "order": {
-          "Fanta": 2.0,
-          "Sprite": 2.0,
-          "Coke": ky,
-          "Water": value
+          "M3": free,
+          "M2": ren,
+          "M1": ky,
+          "M4": value
       }
   }
   console.log(order)
@@ -68,6 +68,7 @@ export default function App() {
           min={0}
           max={10}
           value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
+          0______________________10
         </Grid>
         
       </Grid>
@@ -82,7 +83,7 @@ export default function App() {
           min={0}
           max={10}
           free={free} onChange={knobChange} aria-labelledby="continuous-slideragain" />
-          
+          0______________________10
         </Grid>
       </Grid>
       
@@ -96,6 +97,7 @@ export default function App() {
           min={0}
           max={10}
           ren={ren} onChange={doorChange} aria-labelledby="continuous-slideragagin" />
+          0______________________10
         </Grid>
       </Grid>
   
@@ -108,6 +110,7 @@ export default function App() {
             min={0}
             max={10}
             ky={ky} onChange={finalChange} aria-labelledby="continuous-slideragain" />
+            0______________________10
         </Grid>
       </Grid>
 
